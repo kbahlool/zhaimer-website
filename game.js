@@ -537,7 +537,7 @@ const DONATE_URL = "https://paypal.me/KhalidBahlool1";
 // Link shown/spoken in the promo video's end card — used for the "Play Now"
 // button on the post-trailer overlay. Double-check this matches exactly
 // what's shown in your video before relying on it.
-const TRAILER_PLAY_URL = "https://kbahlool.github.io/zhaimer-game/index.html";
+const TRAILER_PLAY_URL = "game.html";
 
 let fbApp = null, db = null, fbReady = false, fbError = null;
 try{

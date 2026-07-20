@@ -787,3 +787,16 @@ html[data-theme="living"] .avatar{ border-radius:40% 60% 55% 45%; }
 .theme-pick-selected{ outline:2px solid var(--brass-soft); outline-offset:2px; }
 .dest-theme{ border-color:rgba(201,162,39,0.3); }
 .dest-sub{ font-size:11px; color:var(--muted); font-weight:400; margin-top:2px; }
+
+
+/* Informational and SEO content pages */
+.info-page{max-width:980px;margin:0 auto;padding:24px 16px 40px}.info-header{display:flex;align-items:center;justify-content:space-between;gap:20px}.info-language,.secondary-info-btn{color:var(--brass-soft);text-decoration:none;border:1px solid var(--line);padding:10px 16px;border-radius:10px}.info-card{margin-top:22px}.info-card h1{color:var(--brass-soft);margin-top:0}.info-content{font-size:16px;line-height:1.9}.info-content h2{color:var(--brass-soft);margin:28px 0 8px}.info-content ul{padding-left:24px}.rtl-info{text-align:right}.rtl-info .info-content ul{padding-left:0;padding-right:24px}.info-actions{display:flex;gap:12px;flex-wrap:wrap}.info-actions a{text-decoration:none;display:inline-block}
+.game-information{max-width:1050px;margin:34px auto 20px;padding:0 16px}.game-information-inner{background:linear-gradient(165deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 12px 28px rgba(0,0,0,.3)}.game-information h2{color:var(--brass-soft);margin-top:0}.game-information p{line-height:1.7;color:var(--cream)}.game-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}.game-info-grid article{border:1px solid var(--line);border-radius:12px;padding:16px;background:rgba(255,255,255,.025)}.game-info-grid h3{color:var(--brass-soft);margin-top:0}.game-info-more a{color:var(--brass-soft)}
+@media(max-width:700px){.game-info-grid{grid-template-columns:1fr}.info-header{align-items:flex-start}.game-information-inner{padding:20px}}
+
+/* Long-form About pages */
+.info-page .rules-card{max-width:920px;max-height:none;overflow:visible;}
+.info-content ol{padding-left:24px;}
+.rtl-info .info-content ol{padding-left:0;padding-right:24px;}
+.info-content h3{color:var(--cream);margin:20px 0 6px;font-size:1.05rem;}
+.info-content p,.info-content li{max-width:78ch;}
