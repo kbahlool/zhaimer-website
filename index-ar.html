@@ -1,79 +1,262 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>زهايمر — اختبر ذاكرتك</title>
-<meta name="theme-color" content="#050b08" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home.css" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3S53Z9N918"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3S53Z9N918');
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>زهايمر — أتقن ذاكرتك</title>
+  <meta name="description" content="زهايمر لعبة بطاقات استراتيجية تعتمد على الذاكرة والملاحظة والتخطيط. استخدم البطاقات الخاصة وأنهِ الجولة بأقل مجموع من النقاط." />
+  <meta name="author" content="Khalid Bahlool" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="زهايمر — أتقن ذاكرتك" />
+  <meta property="og:description" content="اختبر ذاكرتك، استخدم البطاقات الخاصة وتفوّق على منافسيك." />
+  <meta property="og:image" content="https://kbahlool.github.io/zhaimer-website/assets/images/og-preview.png" />
+  <meta property="og:url" content="https://kbahlool.github.io/zhaimer-website/index-ar.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#050b08" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="home.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3S53Z9N918"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3S53Z9N918');
+  </script>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="navigation" aria-label="التنقل الرئيسي">
+      <a class="brand" href="index-ar.html">زهايمر</a>
 
-<header class="site-header">
-<nav class="navigation">
-<a class="brand" href="index-ar.html">زهايمر</a>
+      <div class="navigation-links">
+        <a href="#about">عن اللعبة</a>
+        <a href="#features">المميزات</a>
+        <a href="#cards">البطاقات</a>
+        <a href="#screenshots">الصور</a>
+        <a href="leaderboard.html">المتصدرون</a>
+        <a href="#support">الدعم</a>
+        <a href="index.html" lang="en" dir="ltr">English</a>
+      </div>
 
-<div class="navigation-links">
-<a href="#about">عن اللعبة</a>
-<a href="#features">المميزات</a>
-<a href="#cards">البطاقات</a>
-<a href="#screenshots">الصور</a>
-<a href="leaderboard.html">المتصدرون</a>
-<a href="#support">الدعم</a>
-<a href="index.html">English</a>
-</div>
+      <a class="navigation-play" href="game.html">ابدأ اللعب</a>
+    </nav>
+  </header>
 
-<a class="navigation-play" href="game.html">ابدأ اللعب</a>
-</nav>
-</header>
+  <main>
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <p class="eyebrow">لعبة الاستراتيجية الخفية</p>
+          <h1>زهايمر</h1>
+          <h2>أتقن ذاكرتك.<br />وتفوّق على منافسيك.</h2>
 
-<main>
-<!-- احتفظ بجميع أقسام الصفحة العربية الحالية كما هي -->
-</main>
+          <p class="hero-description">
+            لعبة بطاقات استراتيجية تحدد فيها الذاكرة والملاحظة وحسن القرار من يفوز.
+            تذكّر بطاقاتك، واستخدم القدرات الخاصة، وأنهِ الجولة بأقل مجموع من النقاط.
+          </p>
 
-<footer class="site-footer">
-<div class="footer-container">
+          <div class="hero-buttons">
+            <a class="primary-button" href="game.html">ابدأ اللعب</a>
+            <a class="secondary-button" href="trailer.html">شاهد الإعلان</a>
+          </div>
+        </div>
 
-<div class="footer-top">
+        <div class="hero-art">
+          <img src="assets/images/og-preview.png" alt="لعبة زهايمر الاستراتيجية للذاكرة" />
+        </div>
+      </div>
 
-<div class="footer-brand">
-<h2>مختبرات زهايمر</h2>
-<p>ألعاب أصلية. إستراتيجية خفية.</p>
-</div>
+      <a class="scroll-indicator" href="#about">
+        استكشف
+        <span class="scroll-arrow">↓</span>
+      </a>
+    </section>
 
-<div class="footer-links">
-<a href="game.html">العب</a>
-<a href="about.html">عن اللعبة</a>
-<a href="trailer.html">الإعلان</a>
-<a href="leaderboard.html">لوحة المتصدرين</a>
-<a href="#support">الدعم</a>
+    <section class="section about-section" id="about">
+      <div class="section-container about-layout">
+        <div class="about-text">
+          <p class="eyebrow">عن اللعبة</p>
+          <h2 class="section-heading">كل بطاقة قد تغيّر نتيجة الجولة</h2>
 
-<a href="privacy-ar.html">سياسة الخصوصية</a>
-<a href="terms-ar.html">الشروط والأحكام</a>
-<a href="contact-ar.html">التواصل</a>
+          <p>
+            زهايمر لعبة بطاقات استراتيجية أصلية صُممت لتحدي الملاحظة والتخطيط واتخاذ القرار.
+            يبدأ كل لاعب ببطاقات مخفية، وعليه تذكّر قيمها طوال الجولة.
+          </p>
 
-<a href="index.html">English</a>
-</div>
+          <p>
+            تمنح البطاقات الخاصة قدرات مؤثرة، مثل كشف بطاقة مخفية، وتبديل البطاقات،
+            وسحب بطاقات إضافية.
+          </p>
 
-</div>
+          <p>الهدف بسيط: أنهِ الجولة بأقل مجموع ممكن من النقاط.</p>
+        </div>
 
-<div class="footer-bottom">
-© 2026 Khalid Bahlool. جميع الحقوق محفوظة.
-</div>
+        <div class="about-image">
+          <img src="assets/images/og-preview.png" alt="تصميم لعبة زهايمر" />
+        </div>
+      </div>
+    </section>
 
-</div>
-</footer>
+    <section class="section features-section" id="features">
+      <div class="section-container">
+        <h2 class="section-heading">مميزات اللعبة</h2>
 
+        <p class="section-introduction">
+          تجمع زهايمر بين القواعد السهلة والقرارات الاستراتيجية، لذلك تختلف كل جولة عن الأخرى.
+        </p>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>اختبر ذاكرتك</h3>
+            <p>تذكّر مواقع بطاقاتك المخفية وقيمها.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">⚔️</div>
+            <h3>قرارات استراتيجية</h3>
+            <p>اختر الوقت المناسب للسحب أو التبديل أو الكشف أو التخلص من البطاقات.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🎴</div>
+            <h3>بطاقات خاصة</h3>
+            <p>استخدم قدرات يمكنها تغيير مسار الجولة.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3>لعب جماعي عبر الإنترنت</h3>
+            <p>أنشئ غرفة أو انضم إلى أصدقائك وتنافس معهم.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>العب ضد الذكاء الاصطناعي</h3>
+            <p>تدرّب قبل تحدي اللاعبين الحقيقيين.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>لوحة المتصدرين</h3>
+            <p>تابع أفضل النتائج والأداء في زهايمر.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cards-section" id="cards">
+      <div class="section-container">
+        <h2 class="section-heading">بطاقات بقدرات خاصة</h2>
+
+        <p class="section-introduction">
+          اختيار التوقيت المناسب لاستخدام القدرات الخاصة جزء أساسي من إتقان زهايمر.
+        </p>
+
+        <div class="cards-grid">
+          <article class="game-card">
+            <div class="card-symbol" dir="ltr">K♥</div>
+            <h3>الملك</h3>
+            <p>اسحب بطاقات إضافية.</p>
+          </article>
+
+          <article class="game-card">
+            <div class="card-symbol" dir="ltr">J♠</div>
+            <h3>الولد</h3>
+            <p>بدّل البطاقات.</p>
+          </article>
+
+          <article class="game-card">
+            <div class="card-symbol" dir="ltr">Q♦</div>
+            <h3>الملكة</h3>
+            <p>اكشف معلومات مخفية.</p>
+          </article>
+
+          <article class="game-card">
+            <div class="card-symbol" dir="ltr">10♣</div>
+            <h3>بطاقات الأرقام</h3>
+            <p>تُحسب أغلب البطاقات بحسب الرقم الظاهر عليها.</p>
+          </article>
+
+          <article class="game-card">
+            <div class="card-symbol" dir="ltr">10♥</div>
+            <h3>بطاقات الصفر</h3>
+            <p>بعض بطاقات العشرة الخاصة تُحسب بصفر نقاط.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="screenshots">
+      <div class="section-container">
+        <h2 class="section-heading">ادخل عالم زهايمر</h2>
+
+        <p class="section-introduction">اختر نمط اللعب وتحدَّ ذاكرتك.</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-main">
+            <img src="assets/images/og-preview.png" alt="شاشة لعبة زهايمر الرئيسية" />
+          </div>
+
+          <div class="gallery-side">
+            <div class="gallery-small">
+              <img src="assets/images/og-preview.png" alt="تصميم من لعبة زهايمر" />
+            </div>
+
+            <div class="gallery-small">
+              <img src="assets/images/og-preview.png" alt="معاينة لعبة زهايمر" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section support-section" id="support">
+      <div class="section-container">
+        <div class="support-box">
+          <p class="eyebrow">ادعم تطوير اللعبة</p>
+          <h2>هل استمتعت بزهايمر؟</h2>
+
+          <p>
+            يساهم دعمك في تحسين اللعبة وتطوير تجارب جديدة مستقبلًا من مختبرات زهايمر.
+          </p>
+
+          <a class="primary-button" href="https://ko-fi.com/kmbgames" target="_blank" rel="noopener noreferrer">
+            ادعم زهايمر
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h2>مختبرات زهايمر</h2>
+          <p>ألعاب أصلية. استراتيجية خفية.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="game.html">العب</a>
+          <a href="about.html">عن اللعبة</a>
+          <a href="trailer.html">الإعلان</a>
+          <a href="leaderboard.html">لوحة المتصدرين</a>
+          <a href="#support">الدعم</a>
+          <a href="privacy-ar.html">سياسة الخصوصية</a>
+          <a href="terms-ar.html">الشروط والأحكام</a>
+          <a href="contact-ar.html">التواصل</a>
+          <a href="index.html" lang="en" dir="ltr">English</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 Khalid Bahlool. جميع الحقوق محفوظة.</div>
+    </div>
+  </footer>
 </body>
 </html>

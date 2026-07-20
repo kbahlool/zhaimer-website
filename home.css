@@ -34,3 +34,38 @@
 html[lang="ar"] .legal-page h1 {
   text-align: right;
 }
+
+/* Improved Arabic homepage layout */
+html[lang="ar"] .navigation-links,
+html[lang="ar"] .footer-links,
+html[lang="ar"] .hero-buttons {
+  direction: rtl;
+}
+html[lang="ar"] .hero-container {
+  direction: rtl;
+}
+html[lang="ar"] .hero h1 {
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+html[lang="ar"] .eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
+}
+html[lang="ar"] .feature-card,
+html[lang="ar"] .game-card {
+  text-align: right;
+}
+html[lang="ar"] .game-card .card-symbol {
+  text-align: center;
+}
+html[lang="ar"] .footer-brand {
+  text-align: right;
+}
+@media (max-width: 900px) {
+  html[lang="ar"] .footer-brand,
+  html[lang="ar"] .feature-card,
+  html[lang="ar"] .game-card {
+    text-align: center;
+  }
+}
