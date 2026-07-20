@@ -27,6 +27,26 @@
     gtag('js', new Date());
     gtag('config', 'G-3S53Z9N918');
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "مختبرات زهايمر",
+  "url": "https://kbahlool.github.io/zhaimer-website/index-ar.html",
+  "logo": "https://kbahlool.github.io/zhaimer-website/assets/images/logo-full.webp",
+  "founder": { "@type": "Person", "name": "خالد بهلول" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "زهايمر",
+  "url": "https://kbahlool.github.io/zhaimer-website/index-ar.html",
+  "inLanguage": ["ar", "en"],
+  "description": "زهايمر لعبة بطاقات استراتيجية تعتمد على الملاحظة والتخطيط والبطاقات الخاصة لإنهاء الجولة بأقل مجموع نقاط."
+}
+</script>
 </head>
 <body>
   <header class="site-header">
@@ -204,7 +224,7 @@
         <div class="gallery-grid">
           <div class="gallery-main">
             <figure class="gallery-figure">
-              <img src="assets/images/og-preview.png" alt="القائمة الرئيسية للعبة زهايمر" />
+              <img src="assets/images/og-preview.png" alt="القائمة الرئيسية للعبة زهايمر"  loading="lazy" />
               <figcaption>القائمة الرئيسية — اختر اللعب ضد الحاسوب أو إنشاء غرفة أو تعلّم القواعد</figcaption>
             </figure>
           </div>
@@ -212,14 +232,14 @@
           <div class="gallery-side">
             <div class="gallery-small">
               <figure class="gallery-figure">
-                <img src="assets/images/og-preview.png" alt="شاشة اللعب الفعلي في زهايمر" />
+                <img src="assets/images/og-preview.png" alt="شاشة اللعب الفعلي في زهايمر"  loading="lazy" />
                 <figcaption>أثناء اللعب — تابع بطاقاتك وتفوّق على خصومك</figcaption>
               </figure>
             </div>
 
             <div class="gallery-small">
               <figure class="gallery-figure">
-                <img src="assets/images/og-preview.png" alt="شاشة نتائج الجولة في زهايمر" />
+                <img src="assets/images/og-preview.png" alt="شاشة نتائج الجولة في زهايمر"  loading="lazy" />
                 <figcaption>نتائج الجولة — صاحب أقل مجموع يفوز بالجولة</figcaption>
               </figure>
             </div>
@@ -273,5 +293,25 @@
       <div class="footer-bottom">© 2026 Khalid Bahlool. جميع الحقوق محفوظة.</div>
     </div>
   </footer>
+<div id="cookieNotice" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:2000;background:rgba(5,10,7,0.97);border-top:1px solid rgba(215,173,79,0.3);padding:16px 20px;text-align:center;font-size:13px;color:#cfc8b9;" dir="rtl">
+  يستخدم هذا الموقع ملفات تعريف الارتباط لأغراض التحليل، ولاحقًا للإعلانات. باستمرارك في استخدام زهايمر فإنك توافق على ذلك. راجع <a href="privacy-ar.html" style="color:#d7ad4f;">سياسة الخصوصية</a>.
+  <button onclick="document.getElementById('cookieNotice').style.display='none';try{localStorage.setItem('zhaimer_cookie_ack','1');}catch(e){}" style="margin-inline-start:14px;padding:6px 16px;border-radius:6px;border:1px solid #d7ad4f;background:transparent;color:#d7ad4f;cursor:pointer;font-size:13px;">حسنًا</button>
+</div>
+<script>
+  (function(){
+    try{
+      if(localStorage.getItem('zhaimer_cookie_ack') !== '1'){
+        document.getElementById('cookieNotice').style.display = 'block';
+      }
+    }catch(e){}
+  })();
+</script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function(){
+      navigator.serviceWorker.register("service-worker.js").catch(function(){});
+    });
+  }
+</script>
 </body>
 </html>

@@ -25,6 +25,26 @@
 
   gtag('config', 'G-3S53Z9N918');
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Zhaimer Labs",
+  "url": "https://kbahlool.github.io/zhaimer-website/",
+  "logo": "https://kbahlool.github.io/zhaimer-website/assets/images/logo-full.webp",
+  "founder": { "@type": "Person", "name": "Khalid Bahlool" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Zhaimer",
+  "url": "https://kbahlool.github.io/zhaimer-website/",
+  "inLanguage": ["en", "ar"],
+  "description": "Zhaimer is a strategic memory card game where players use observation, planning and special cards to finish with the lowest score."
+}
+</script>
 </head>
 <body>
   <header class="site-header">
@@ -215,7 +235,7 @@
               <img
                 src="assets/images/og-preview.png"
                 alt="Zhaimer main menu screen"
-              />
+               loading="lazy" />
               <figcaption>Main Menu — choose to play vs AI, create a room, or learn the rules</figcaption>
             </figure>
           </div>
@@ -226,7 +246,7 @@
                 <img
                   src="assets/images/og-preview.png"
                   alt="Zhaimer gameplay screen showing player hands and the discard pile"
-                />
+                 loading="lazy" />
                 <figcaption>Gameplay — track your hand and outsmart opponents</figcaption>
               </figure>
             </div>
@@ -236,7 +256,7 @@
                 <img
                   src="assets/images/og-preview.png"
                   alt="Zhaimer round results screen"
-                />
+                 loading="lazy" />
                 <figcaption>Round Results — lowest total wins the round</figcaption>
               </figure>
             </div>
@@ -298,5 +318,25 @@
       </div>
     </div>
   </footer>
+<div id="cookieNotice" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:2000;background:rgba(5,10,7,0.97);border-top:1px solid rgba(215,173,79,0.3);padding:16px 20px;text-align:center;font-size:13px;color:#cfc8b9;">
+  This site uses cookies for analytics and, in the future, advertising. By continuing to use Zhaimer, you agree to this. See our <a href="privacy.html" style="color:#d7ad4f;">Privacy Policy</a>.
+  <button onclick="document.getElementById('cookieNotice').style.display='none';try{localStorage.setItem('zhaimer_cookie_ack','1');}catch(e){}" style="margin-inline-start:14px;padding:6px 16px;border-radius:6px;border:1px solid #d7ad4f;background:transparent;color:#d7ad4f;cursor:pointer;font-size:13px;">Got it</button>
+</div>
+<script>
+  (function(){
+    try{
+      if(localStorage.getItem('zhaimer_cookie_ack') !== '1'){
+        document.getElementById('cookieNotice').style.display = 'block';
+      }
+    }catch(e){}
+  })();
+</script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function(){
+      navigator.serviceWorker.register("service-worker.js").catch(function(){});
+    });
+  }
+</script>
 </body>
 </html>

@@ -67,6 +67,22 @@
 
   gtag('config', 'G-3S53Z9N918');
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Zhaimer",
+  "description": "Zhaimer is a strategic memory card game where players use observation, planning and special cards to finish with the lowest score.",
+  "genre": ["Card Game", "Strategy"],
+  "playMode": ["SinglePlayer", "MultiPlayer"],
+  "applicationCategory": "Game",
+  "operatingSystem": "Any (Web Browser)",
+  "url": "https://kbahlool.github.io/zhaimer-website/game.html",
+  "image": "https://kbahlool.github.io/zhaimer-website/assets/images/og-preview.png",
+  "author": { "@type": "Person", "name": "Khalid Bahlool" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
 
 </head>
 <body>
@@ -106,5 +122,12 @@
 </footer>
 
 <script src="game.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function(){
+      navigator.serviceWorker.register("service-worker.js").catch(function(){});
+    });
+  }
+</script>
 </body>
 </html>
