@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kbahlool.github.io/zhaimer-website/sitemap.xml
