@@ -48,7 +48,9 @@
 }
 </script>
 </head>
-<body>
+<body id="top">
+<a href="#top" class="floating-home-btn" aria-label="Home" title="Home">🏠</a>
+
   <header class="site-header">
     <nav class="navigation" aria-label="التنقل الرئيسي">
       <a class="brand" href="index-ar.html">زهايمر</a>
@@ -98,8 +100,13 @@
           <div class="hero-buttons">
             <a class="primary-button hero-play-pulse" href="game.html">ابدأ اللعب</a>
             <a class="secondary-button" href="trailer.html">شاهد الإعلان</a>
-            <button id="pwaInstallBtn" class="secondary-button" style="display:none;" type="button">📲 تثبيت التطبيق</button>
           </div>
+
+          <button id="pwaInstallBtn" class="download-icon-btn" type="button">
+            <span class="download-icon">⬇️</span>
+            <span class="download-label">تنزيل</span>
+          </button>
+          <div id="pwaInstallHint" class="download-hint" style="display:none;"></div>
         </div>
 
         <div class="hero-art">
@@ -440,25 +447,43 @@
   (function(){
     var deferredPrompt = null;
     var btn = document.getElementById('pwaInstallBtn');
+    var hint = document.getElementById('pwaInstallHint');
     if (!btn) return;
+
+    function isIOS(){
+      return /iphone|ipad|ipod/i.test(navigator.userAgent);
+    }
+    function isStandalone(){
+      return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    }
+
+    if (isStandalone()) {
+      btn.style.display = 'none';
+      return;
+    }
 
     window.addEventListener('beforeinstallprompt', function(e){
       e.preventDefault();
       deferredPrompt = e;
-      btn.style.display = 'inline-block';
     });
 
     btn.addEventListener('click', function(){
-      if (!deferredPrompt) return;
-      btn.style.display = 'none';
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.finally(function(){
-        deferredPrompt = null;
-      });
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
+        return;
+      }
+      if (isIOS()) {
+        hint.textContent = 'على آيفون/آيباد: اضغط على أيقونة المشاركة (□↑) في سفاري، ثم اختر "إضافة إلى الشاشة الرئيسية".';
+      } else {
+        hint.textContent = 'ابحث عن أيقونة التثبيت في شريط عنوان المتصفح، أو افتح قائمة المتصفح (⋮) واختر "تثبيت التطبيق" / "إضافة إلى الشاشة الرئيسية".';
+      }
+      hint.style.display = 'block';
     });
 
     window.addEventListener('appinstalled', function(){
       btn.style.display = 'none';
+      if (hint) hint.style.display = 'none';
       deferredPrompt = null;
     });
   })();

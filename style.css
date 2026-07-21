@@ -815,3 +815,17 @@ html[data-theme="living"] .avatar{ border-radius:40% 60% 55% 45%; }
 
 /* How-to-play guide */
 .how-guide .guide-kicker{color:var(--brass-soft);font-size:.78rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin:0 0 8px}.how-guide .guide-lead{font-size:1.08rem;color:var(--muted);max-width:75ch}.guide-toc{display:flex;flex-wrap:wrap;gap:9px;margin:24px 0 8px}.guide-toc a{border:1px solid var(--line);border-radius:999px;padding:8px 13px;color:var(--brass-soft);text-decoration:none;font-size:.9rem}.guide-toc a:hover{background:rgba(212,169,73,.08)}.guide-section{scroll-margin-top:20px;padding-top:6px}.guide-tip{margin:18px 0;padding:15px 17px;border-left:4px solid var(--brass-soft);background:rgba(212,169,73,.08);border-radius:8px}.rtl-info .guide-tip{border-left:0;border-right:4px solid var(--brass-soft)}.guide-table-wrap{overflow-x:auto}.guide-table{width:100%;border-collapse:collapse;margin:14px 0 6px}.guide-table th,.guide-table td{padding:12px 14px;border:1px solid var(--line);text-align:left}.rtl-info .guide-table th,.rtl-info .guide-table td{text-align:right}.guide-table th{color:var(--brass-soft);background:rgba(212,169,73,.08)}.special-grid,.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}.special-box,.score-card{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(255,255,255,.025)}.special-symbol{font-family:Georgia,serif;font-size:2.4rem;color:var(--brass-soft);line-height:1}.special-box h3,.score-card h3{margin:8px 0;color:var(--cream)}.match-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.match-grid div{padding:14px;border:1px solid var(--line);border-radius:10px;text-align:center}.match-grid strong{display:block;color:var(--brass-soft);font-size:1.15rem}.match-grid span{display:block;margin-top:4px;color:var(--muted);font-size:.9rem}.score-cards{font-family:Georgia,serif;color:var(--brass-soft);font-size:1.15rem}.guide-section details{border:1px solid var(--line);border-radius:10px;padding:13px 15px;margin:10px 0;background:rgba(255,255,255,.02)}.guide-section summary{cursor:pointer;color:var(--cream);font-weight:700}.guide-section details p{margin:10px 0 0;color:var(--muted)}@media(max-width:760px){.special-grid,.score-grid,.match-grid{grid-template-columns:1fr}.guide-toc{gap:7px}.guide-toc a{font-size:.82rem;padding:7px 10px}}
+
+/* Persistent floating Home button — same as home.css, kept in sync here
+   for pages that load style.css instead. */
+.floating-home-btn{
+  position:fixed; top:16px; inset-inline-start:16px; z-index:3000;
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(8,13,18,0.85); border:1px solid rgba(215,173,79,0.4);
+  color:#e9c65c; font-size:20px; text-decoration:none;
+  box-shadow:0 4px 14px rgba(0,0,0,0.4);
+  backdrop-filter:blur(4px);
+  transition:transform .2s ease, background .2s ease;
+}
+.floating-home-btn:hover{ transform:scale(1.08); background:rgba(215,173,79,0.15); }

@@ -184,3 +184,34 @@ html[lang="ar"] .footer-brand {
 .modes-intro{ text-align:center; color:#a9a294; font-size:14px; margin:8px 0 4px; }
 .modes-grid-4{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
 .modes-cta{ text-align:center; margin-top:28px; }
+
+/* Always-visible Download/Install button */
+.download-icon-btn{
+  display:flex; flex-direction:column; align-items:center; gap:4px; margin:14px auto 0;
+  padding:12px 20px; border-radius:10px; border:1px solid rgba(215,173,79,0.35);
+  background:rgba(215,173,79,0.06); color:#eee4c9; cursor:pointer;
+  font-size:14px; font-weight:600; transition:background .2s ease, transform .2s ease;
+}
+.download-icon-btn:hover{ background:rgba(215,173,79,0.15); transform:translateY(-2px); }
+.download-icon{ font-size:22px; }
+.download-label{ font-size:12px; letter-spacing:.5px; }
+.download-hint{
+  max-width:360px; margin:10px auto 0; padding:10px 14px; border-radius:8px;
+  background:rgba(255,255,255,0.04); border:1px solid rgba(215,173,79,0.2);
+  color:#a9a294; font-size:12px; line-height:1.5; text-align:center;
+}
+
+/* Persistent floating Home button — stays fixed at the top of the screen
+   regardless of scroll position, on every page, so getting back to the
+   homepage never requires scrolling down to the footer. */
+.floating-home-btn{
+  position:fixed; top:16px; inset-inline-start:16px; z-index:3000;
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(8,13,18,0.85); border:1px solid rgba(215,173,79,0.4);
+  color:#e9c65c; font-size:20px; text-decoration:none;
+  box-shadow:0 4px 14px rgba(0,0,0,0.4);
+  backdrop-filter:blur(4px);
+  transition:transform .2s ease, background .2s ease;
+}
+.floating-home-btn:hover{ transform:scale(1.08); background:rgba(215,173,79,0.15); }

@@ -46,7 +46,9 @@
 }
 </script>
 </head>
-<body>
+<body id="top">
+<a href="#top" class="floating-home-btn" aria-label="Home" title="Home">🏠</a>
+
   <header class="site-header">
     <nav class="navigation">
       <a class="brand" href="index.html">ZHAIMER</a>
@@ -96,8 +98,13 @@
           <div class="hero-buttons">
             <a class="primary-button hero-play-pulse" href="game.html">Play Now</a>
             <a class="secondary-button" href="trailer.html">Watch Trailer</a>
-            <button id="pwaInstallBtn" class="secondary-button" style="display:none;" type="button">📲 Install App</button>
           </div>
+
+          <button id="pwaInstallBtn" class="download-icon-btn" type="button">
+            <span class="download-icon">⬇️</span>
+            <span class="download-label">Download</span>
+          </button>
+          <div id="pwaInstallHint" class="download-hint" style="display:none;"></div>
         </div>
 
         <div class="hero-art">
@@ -465,33 +472,51 @@
   }
 </script>
 <script>
-  // Real PWA install button — only ever shown when the browser itself
-  // confirms this site meets its installability criteria (manifest +
-  // service worker + served over https). This is the same signal Chrome
-  // uses for its own address-bar install icon, just surfaced as an
-  // obvious on-page button instead of something easy to miss.
+  // Always-visible Download button. If the browser supports automatic PWA
+  // installation (Chrome/Edge on Android & desktop), clicking it triggers
+  // the real native install dialog. If not (notably Safari on iPhone/iPad,
+  // which has no install API at all), clicking it shows the correct manual
+  // steps for that platform instead of doing nothing.
   (function(){
     var deferredPrompt = null;
     var btn = document.getElementById('pwaInstallBtn');
+    var hint = document.getElementById('pwaInstallHint');
     if (!btn) return;
+
+    function isIOS(){
+      return /iphone|ipad|ipod/i.test(navigator.userAgent);
+    }
+    function isStandalone(){
+      return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    }
+
+    if (isStandalone()) {
+      btn.style.display = 'none';
+      return;
+    }
 
     window.addEventListener('beforeinstallprompt', function(e){
       e.preventDefault();
       deferredPrompt = e;
-      btn.style.display = 'inline-block';
     });
 
     btn.addEventListener('click', function(){
-      if (!deferredPrompt) return;
-      btn.style.display = 'none';
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.finally(function(){
-        deferredPrompt = null;
-      });
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
+        return;
+      }
+      if (isIOS()) {
+        hint.textContent = 'On iPhone/iPad: tap the Share icon (□↑) in Safari, then "Add to Home Screen".';
+      } else {
+        hint.textContent = 'Look for an install icon in your browser\'s address bar, or open the browser menu (⋮) and choose "Install app" / "Add to Home Screen".';
+      }
+      hint.style.display = 'block';
     });
 
     window.addEventListener('appinstalled', function(){
       btn.style.display = 'none';
+      if (hint) hint.style.display = 'none';
       deferredPrompt = null;
     });
   })();
