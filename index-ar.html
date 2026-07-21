@@ -100,12 +100,11 @@
           <div class="hero-buttons">
             <a class="primary-button hero-play-pulse" href="game.html">ابدأ اللعب</a>
             <a class="secondary-button" href="trailer.html">شاهد الإعلان</a>
+            <button id="pwaInstallBtn" class="download-icon-btn" type="button">
+              <span class="download-icon">⬇️</span>
+              <span class="download-label">تنزيل</span>
+            </button>
           </div>
-
-          <button id="pwaInstallBtn" class="download-icon-btn" type="button">
-            <span class="download-icon">⬇️</span>
-            <span class="download-label">تنزيل</span>
-          </button>
           <div id="pwaInstallHint" class="download-hint" style="display:none;"></div>
         </div>
 
@@ -453,6 +452,9 @@
     function isIOS(){
       return /iphone|ipad|ipod/i.test(navigator.userAgent);
     }
+    function isSamsungInternet(){
+      return /SamsungBrowser/i.test(navigator.userAgent);
+    }
     function isStandalone(){
       return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
     }
@@ -473,7 +475,9 @@
         deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
         return;
       }
-      if (isIOS()) {
+      if (isSamsungInternet()) {
+        hint.textContent = 'في متصفح Samsung Internet: اضغط على القائمة (☰) في الأسفل، ثم "إضافة الصفحة إلى" ← "الشاشة الرئيسية".';
+      } else if (isIOS()) {
         hint.textContent = 'على آيفون/آيباد: اضغط على أيقونة المشاركة (□↑) في سفاري، ثم اختر "إضافة إلى الشاشة الرئيسية".';
       } else {
         hint.textContent = 'ابحث عن أيقونة التثبيت في شريط عنوان المتصفح، أو افتح قائمة المتصفح (⋮) واختر "تثبيت التطبيق" / "إضافة إلى الشاشة الرئيسية".';

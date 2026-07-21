@@ -98,12 +98,11 @@
           <div class="hero-buttons">
             <a class="primary-button hero-play-pulse" href="game.html">Play Now</a>
             <a class="secondary-button" href="trailer.html">Watch Trailer</a>
+            <button id="pwaInstallBtn" class="download-icon-btn" type="button">
+              <span class="download-icon">⬇️</span>
+              <span class="download-label">Download</span>
+            </button>
           </div>
-
-          <button id="pwaInstallBtn" class="download-icon-btn" type="button">
-            <span class="download-icon">⬇️</span>
-            <span class="download-label">Download</span>
-          </button>
           <div id="pwaInstallHint" class="download-hint" style="display:none;"></div>
         </div>
 
@@ -486,6 +485,9 @@
     function isIOS(){
       return /iphone|ipad|ipod/i.test(navigator.userAgent);
     }
+    function isSamsungInternet(){
+      return /SamsungBrowser/i.test(navigator.userAgent);
+    }
     function isStandalone(){
       return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
     }
@@ -506,7 +508,13 @@
         deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
         return;
       }
-      if (isIOS()) {
+      // Samsung Internet doesn't reliably support the automatic install
+      // API — it manages installation through its own menu instead, so
+      // we give the exact steps for that browser rather than a generic
+      // message that wouldn't match what the user actually sees.
+      if (isSamsungInternet()) {
+        hint.textContent = 'In Samsung Internet: tap the menu (☰) at the bottom, then "Add page to" → "Home screen".';
+      } else if (isIOS()) {
         hint.textContent = 'On iPhone/iPad: tap the Share icon (□↑) in Safari, then "Add to Home Screen".';
       } else {
         hint.textContent = 'Look for an install icon in your browser\'s address bar, or open the browser menu (⋮) and choose "Install app" / "Add to Home Screen".';
