@@ -221,6 +221,17 @@
   .rules-body ul{margin:6px 0; padding-inline-start:20px;}
   .rules-body li{margin:4px 0; color:var(--cream);}
   .rules-body b{color:var(--brass-soft);}
+  .developer-card{
+    display:flex; align-items:center; gap:18px; margin-top:16px;
+    padding:18px; border-radius:14px; background:var(--panel2); border:1px solid var(--line);
+  }
+  .developer-avatar{
+    flex-shrink:0; width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:Georgia,serif; font-weight:700; font-size:18px; color:var(--ink);
+    background:linear-gradient(135deg, var(--brass-soft), var(--brass));
+  }
+  @media (max-width:480px){ .developer-card{ flex-direction:column; text-align:center; } }
   .terms-meta{ color:var(--muted); font-size:12px; margin-bottom:14px !important; }
   .terms-disclaimer{
     margin-top:20px !important; padding-top:12px; border-top:1px solid var(--line);

@@ -78,3 +78,84 @@ html[lang="ar"] .footer-brand {
   background:rgba(4,18,12,.9);border-top:1px solid rgba(215,173,79,.2);
   text-align:center;
 }
+
+/* ===================== Hero: glow, floating cards, particles ===================== */
+.hero{ position:relative; overflow:hidden; }
+.hero-glow{
+  position:absolute; top:-10%; left:50%; transform:translateX(-50%);
+  width:600px; height:600px; max-width:80vw;
+  background:radial-gradient(circle, rgba(215,173,79,0.28) 0%, rgba(215,173,79,0.08) 40%, transparent 70%);
+  pointer-events:none; z-index:0; animation:heroGlowPulse 6s ease-in-out infinite;
+}
+@keyframes heroGlowPulse{
+  0%,100%{ opacity:.7; transform:translateX(-50%) scale(1); }
+  50%{ opacity:1; transform:translateX(-50%) scale(1.08); }
+}
+.hero-glow-title{ position:relative; z-index:1; text-shadow:0 0 40px rgba(215,173,79,0.35); }
+
+.hero-floaters{ position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+.hero-float-card{
+  position:absolute; font-size:34px; color:rgba(215,173,79,0.35);
+  animation:heroCardFloat 9s ease-in-out infinite;
+}
+.fc1{ top:12%; left:6%; animation-delay:0s; }
+.fc2{ top:60%; left:10%; animation-delay:1.5s; color:rgba(200,60,80,0.3); }
+.fc3{ top:20%; right:8%; animation-delay:3s; color:rgba(200,60,80,0.3); }
+.fc4{ top:65%; right:6%; animation-delay:4.5s; }
+@keyframes heroCardFloat{
+  0%,100%{ transform:translateY(0) rotate(-6deg); opacity:.5; }
+  50%{ transform:translateY(-24px) rotate(6deg); opacity:.9; }
+}
+.hero-particle{
+  position:absolute; width:5px; height:5px; border-radius:50%;
+  background:rgba(215,173,79,0.6); animation:heroParticleDrift 7s linear infinite;
+}
+.p1{ top:20%; left:20%; animation-delay:0s; }
+.p2{ top:75%; left:30%; animation-delay:1.2s; }
+.p3{ top:35%; left:80%; animation-delay:2.4s; }
+.p4{ top:85%; left:70%; animation-delay:3.6s; }
+.p5{ top:10%; left:55%; animation-delay:4.8s; }
+@keyframes heroParticleDrift{
+  0%{ transform:translateY(0) scale(1); opacity:0; }
+  15%{ opacity:.8; }
+  85%{ opacity:.6; }
+  100%{ transform:translateY(-90px) scale(0.4); opacity:0; }
+}
+.hero-play-pulse{ position:relative; animation:heroPlayPulse 2.4s ease-in-out infinite; }
+@keyframes heroPlayPulse{
+  0%,100%{ box-shadow:0 0 0 0 rgba(215,173,79,0.45); }
+  50%{ box-shadow:0 0 0 14px rgba(215,173,79,0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-glow, .hero-float-card, .hero-particle, .hero-play-pulse{ animation:none !important; }
+}
+
+/* ===================== Stats section ===================== */
+.stats-section{ padding-top:10px; padding-bottom:10px; }
+.stats-grid{
+  display:grid; grid-template-columns:repeat(5,1fr); gap:16px;
+}
+@media (max-width:900px){ .stats-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:560px){ .stats-grid{ grid-template-columns:repeat(2,1fr); } }
+.stat-card{
+  text-align:center; padding:20px 12px; border-radius:14px;
+  background:rgba(215,173,79,0.05); border:1px solid rgba(215,173,79,0.18);
+  transition:transform .25s ease, background .25s ease;
+}
+.stat-card:hover{ transform:translateY(-4px); background:rgba(215,173,79,0.1); }
+.stat-icon{ font-size:26px; margin-bottom:6px; }
+.stat-value{ font-family:Georgia,serif; font-size:22px; color:#d7ad4f; font-weight:700; }
+.stat-label{ font-size:12px; color:#a9a294; text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
+
+/* ===================== Why Zhaimer section ===================== */
+.why-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:18px; margin-top:24px;
+}
+.why-card{
+  padding:22px 18px; border-radius:14px; background:rgba(255,255,255,0.02);
+  border:1px solid rgba(215,173,79,0.14); transition:transform .25s ease, border-color .25s ease;
+}
+.why-card:hover{ transform:translateY(-4px); border-color:rgba(215,173,79,0.4); }
+.why-icon{ font-size:28px; margin-bottom:10px; }
+.why-card h3{ font-size:16px; color:#eee4c9; margin:0 0 8px; }
+.why-card p{ font-size:13px; color:#a9a294; line-height:1.6; margin:0; }

@@ -72,10 +72,22 @@
 
   <main>
     <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-floaters" aria-hidden="true">
+        <span class="hero-float-card fc1">♠</span>
+        <span class="hero-float-card fc2">♥</span>
+        <span class="hero-float-card fc3">♦</span>
+        <span class="hero-float-card fc4">♣</span>
+        <span class="hero-particle p1"></span>
+        <span class="hero-particle p2"></span>
+        <span class="hero-particle p3"></span>
+        <span class="hero-particle p4"></span>
+        <span class="hero-particle p5"></span>
+      </div>
       <div class="hero-container">
         <div class="hero-content">
           <p class="eyebrow">لعبة الاستراتيجية الخفية</p>
-          <h1>زهايمر</h1>
+          <h1 class="hero-glow-title">زهايمر</h1>
           <h2>أتقن ذاكرتك.<br />وتفوّق على منافسيك.</h2>
 
           <p class="hero-description">
@@ -84,7 +96,7 @@
           </p>
 
           <div class="hero-buttons">
-            <a class="primary-button" href="game.html">ابدأ اللعب</a>
+            <a class="primary-button hero-play-pulse" href="game.html">ابدأ اللعب</a>
             <a class="secondary-button" href="trailer.html">شاهد الإعلان</a>
           </div>
         </div>
@@ -98,6 +110,72 @@
         استكشف
         <span class="scroll-arrow">↓</span>
       </a>
+    </section>
+
+    <section class="section stats-section" aria-label="زهايمر في لمحة">
+      <div class="section-container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🌍</div>
+            <div class="stat-value">2</div>
+            <div class="stat-label">اللغات</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🃏</div>
+            <div class="stat-value">3</div>
+            <div class="stat-label">بطاقات خاصة</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🎮</div>
+            <div class="stat-value">قريبًا</div>
+            <div class="stat-label">اللعب أونلاين</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📱</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-label">متوافق مع الجوال</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🧠</div>
+            <div class="stat-value">★★★★★</div>
+            <div class="stat-label">الاستراتيجية</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-section" aria-labelledby="why-heading">
+      <div class="section-container">
+        <p class="eyebrow">لماذا زهايمر؟</p>
+        <h2 class="section-heading" id="why-heading">لعبة صُممت لمكافأة العقول الحادة</h2>
+        <div class="why-grid">
+          <article class="why-card">
+            <div class="why-icon">♟️</div>
+            <h3>لعب استراتيجي</h3>
+            <p>كل قرار — تبديل أو رمي أو إعلان — يغيّر توازن الجولة.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">🧠</div>
+            <h3>آليات الذاكرة</h3>
+            <p>تتبّع البطاقات المخفية عبر الأدوار. ما تتذكره هو ميزتك الحقيقية.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">⚡</div>
+            <h3>مباريات سريعة</h3>
+            <p>تسير الجولات بسرعة، فتستطيع لعب مباراة واحدة أو عشرات دون فقدان الزخم.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">🌱</div>
+            <h3>سهلة التعلم</h3>
+            <p>تستغرق القواعد الأساسية دقائق لإتقانها — لا حاجة لدليل لبدء اللعب.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">👑</div>
+            <h3>صعبة الإتقان</h3>
+            <p>البطاقات الخاصة والمخاطرة المحسوبة تمنح اللاعبين المتمرسين عمقًا حقيقيًا لاستكشافه.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="section about-section" id="about">
