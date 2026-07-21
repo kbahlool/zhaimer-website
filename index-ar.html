@@ -98,6 +98,7 @@
           <div class="hero-buttons">
             <a class="primary-button hero-play-pulse" href="game.html">ابدأ اللعب</a>
             <a class="secondary-button" href="trailer.html">شاهد الإعلان</a>
+            <button id="pwaInstallBtn" class="secondary-button" style="display:none;" type="button">📲 تثبيت التطبيق</button>
           </div>
         </div>
 
@@ -434,6 +435,33 @@
       navigator.serviceWorker.register("service-worker.js").catch(function(){});
     });
   }
+</script>
+<script>
+  (function(){
+    var deferredPrompt = null;
+    var btn = document.getElementById('pwaInstallBtn');
+    if (!btn) return;
+
+    window.addEventListener('beforeinstallprompt', function(e){
+      e.preventDefault();
+      deferredPrompt = e;
+      btn.style.display = 'inline-block';
+    });
+
+    btn.addEventListener('click', function(){
+      if (!deferredPrompt) return;
+      btn.style.display = 'none';
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.finally(function(){
+        deferredPrompt = null;
+      });
+    });
+
+    window.addEventListener('appinstalled', function(){
+      btn.style.display = 'none';
+      deferredPrompt = null;
+    });
+  })();
 </script>
 </body>
 </html>

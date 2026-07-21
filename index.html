@@ -96,6 +96,7 @@
           <div class="hero-buttons">
             <a class="primary-button hero-play-pulse" href="game.html">Play Now</a>
             <a class="secondary-button" href="trailer.html">Watch Trailer</a>
+            <button id="pwaInstallBtn" class="secondary-button" style="display:none;" type="button">📲 Install App</button>
           </div>
         </div>
 
@@ -462,6 +463,38 @@
       navigator.serviceWorker.register("service-worker.js").catch(function(){});
     });
   }
+</script>
+<script>
+  // Real PWA install button — only ever shown when the browser itself
+  // confirms this site meets its installability criteria (manifest +
+  // service worker + served over https). This is the same signal Chrome
+  // uses for its own address-bar install icon, just surfaced as an
+  // obvious on-page button instead of something easy to miss.
+  (function(){
+    var deferredPrompt = null;
+    var btn = document.getElementById('pwaInstallBtn');
+    if (!btn) return;
+
+    window.addEventListener('beforeinstallprompt', function(e){
+      e.preventDefault();
+      deferredPrompt = e;
+      btn.style.display = 'inline-block';
+    });
+
+    btn.addEventListener('click', function(){
+      if (!deferredPrompt) return;
+      btn.style.display = 'none';
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.finally(function(){
+        deferredPrompt = null;
+      });
+    });
+
+    window.addEventListener('appinstalled', function(){
+      btn.style.display = 'none';
+      deferredPrompt = null;
+    });
+  })();
 </script>
 </body>
 </html>
