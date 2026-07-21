@@ -159,3 +159,23 @@ html[lang="ar"] .footer-brand {
 .why-icon{ font-size:28px; margin-bottom:10px; }
 .why-card h3{ font-size:16px; color:#eee4c9; margin:0 0 8px; }
 .why-card p{ font-size:13px; color:#a9a294; line-height:1.6; margin:0; }
+
+/* ===================== Game Modes section ===================== */
+.modes-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:24px;
+}
+.mode-card{
+  padding:24px 20px; border-radius:14px; background:rgba(255,255,255,0.02);
+  border:1px solid rgba(215,173,79,0.14); text-align:center;
+  transition:transform .25s ease, border-color .25s ease;
+}
+.mode-card:hover{ transform:translateY(-4px); border-color:rgba(215,173,79,0.4); }
+.mode-card.mode-available{ border-color:rgba(127,176,105,0.4); background:rgba(127,176,105,0.05); }
+.mode-icon{ font-size:30px; margin-bottom:10px; }
+.mode-card h3{ font-size:16px; color:#eee4c9; margin:0 0 8px; }
+.mode-card p{ font-size:13px; color:#a9a294; line-height:1.6; margin:0 0 14px; }
+.mode-badge{
+  display:inline-block; font-size:11px; letter-spacing:1px; text-transform:uppercase;
+  padding:4px 12px; border-radius:12px; border:1px solid rgba(215,173,79,0.3); color:#d7ad4f;
+}
+.mode-badge-live{ border-color:rgba(127,176,105,0.5); color:#7fb069; background:rgba(127,176,105,0.1); }
