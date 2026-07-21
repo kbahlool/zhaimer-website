@@ -179,3 +179,8 @@ html[lang="ar"] .footer-brand {
   padding:4px 12px; border-radius:12px; border:1px solid rgba(215,173,79,0.3); color:#d7ad4f;
 }
 .mode-badge-live{ border-color:rgba(127,176,105,0.5); color:#7fb069; background:rgba(127,176,105,0.1); }
+
+/* Game Modes v2 — 4-card layout with intro line and CTA */
+.modes-intro{ text-align:center; color:#a9a294; font-size:14px; margin:8px 0 4px; }
+.modes-grid-4{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+.modes-cta{ text-align:center; margin-top:28px; }
