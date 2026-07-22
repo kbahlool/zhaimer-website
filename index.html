@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9984359434282636"
+     crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Zhaimer — Master Your Memory</title>
   <meta name="description" content="Zhaimer is a strategic memory card game where players use observation, planning and special cards to finish with the lowest score." />
@@ -503,18 +505,36 @@
     });
 
     btn.addEventListener('click', function(){
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
+      // Samsung Internet can fire beforeinstallprompt (making deferredPrompt
+      // non-null) without actually supporting .prompt() properly — it
+      // sometimes silently does nothing. So for this browser specifically,
+      // always show the manual steps instead of trusting the native API,
+      // rather than risk a dead-silent tap.
+      if (isSamsungInternet()) {
+        hint.textContent = 'In Samsung Internet: tap the menu (☰) at the bottom of the screen, then "Add page to" → "Home screen".';
+        hint.style.display = 'block';
         return;
       }
-      // Samsung Internet doesn't reliably support the automatic install
-      // API — it manages installation through its own menu instead, so
-      // we give the exact steps for that browser rather than a generic
-      // message that wouldn't match what the user actually sees.
-      if (isSamsungInternet()) {
-        hint.textContent = 'In Samsung Internet: tap the menu (☰) at the bottom, then "Add page to" → "Home screen".';
-      } else if (isIOS()) {
+      if (deferredPrompt) {
+        try {
+          var promptResult = deferredPrompt.prompt();
+          if (promptResult && typeof promptResult.then === 'function') {
+            deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
+          } else {
+            // .prompt() didn't behave as expected — don't leave the tap
+            // feeling dead, show the manual fallback instead.
+            deferredPrompt = null;
+            hint.textContent = 'Open your browser menu and choose "Install app" or "Add to Home Screen".';
+            hint.style.display = 'block';
+          }
+        } catch (err) {
+          deferredPrompt = null;
+          hint.textContent = 'Open your browser menu and choose "Install app" or "Add to Home Screen".';
+          hint.style.display = 'block';
+        }
+        return;
+      }
+      if (isIOS()) {
         hint.textContent = 'On iPhone/iPad: tap the Share icon (□↑) in Safari, then "Add to Home Screen".';
       } else {
         hint.textContent = 'Look for an install icon in your browser\'s address bar, or open the browser menu (⋮) and choose "Install app" / "Add to Home Screen".';

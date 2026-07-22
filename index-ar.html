@@ -2,6 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9984359434282636"
+     crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>زهايمر — أتقن ذاكرتك</title>
   <meta name="description" content="زهايمر لعبة بطاقات استراتيجية تعتمد على الذاكرة والملاحظة والتخطيط. استخدم البطاقات الخاصة وأنهِ الجولة بأقل مجموع من النقاط." />
@@ -470,14 +472,29 @@
     });
 
     btn.addEventListener('click', function(){
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
+      if (isSamsungInternet()) {
+        hint.textContent = 'في متصفح Samsung Internet: اضغط على القائمة (☰) في أسفل الشاشة، ثم "إضافة الصفحة إلى" ← "الشاشة الرئيسية".';
+        hint.style.display = 'block';
         return;
       }
-      if (isSamsungInternet()) {
-        hint.textContent = 'في متصفح Samsung Internet: اضغط على القائمة (☰) في الأسفل، ثم "إضافة الصفحة إلى" ← "الشاشة الرئيسية".';
-      } else if (isIOS()) {
+      if (deferredPrompt) {
+        try {
+          var promptResult = deferredPrompt.prompt();
+          if (promptResult && typeof promptResult.then === 'function') {
+            deferredPrompt.userChoice.finally(function(){ deferredPrompt = null; });
+          } else {
+            deferredPrompt = null;
+            hint.textContent = 'افتح قائمة متصفحك واختر "تثبيت التطبيق" أو "إضافة إلى الشاشة الرئيسية".';
+            hint.style.display = 'block';
+          }
+        } catch (err) {
+          deferredPrompt = null;
+          hint.textContent = 'افتح قائمة متصفحك واختر "تثبيت التطبيق" أو "إضافة إلى الشاشة الرئيسية".';
+          hint.style.display = 'block';
+        }
+        return;
+      }
+      if (isIOS()) {
         hint.textContent = 'على آيفون/آيباد: اضغط على أيقونة المشاركة (□↑) في سفاري، ثم اختر "إضافة إلى الشاشة الرئيسية".';
       } else {
         hint.textContent = 'ابحث عن أيقونة التثبيت في شريط عنوان المتصفح، أو افتح قائمة المتصفح (⋮) واختر "تثبيت التطبيق" / "إضافة إلى الشاشة الرئيسية".';
