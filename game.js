@@ -2426,7 +2426,7 @@ function render(){
   document.body.classList.remove('page-scroll');
   // in a room
   if(ROOM.phase==='lobby'){ app.innerHTML = renderLobby(); attach(); return; }
-  if(ROOM.phase==='roundEnd'){ app.innerHTML = renderReveal(); attach(); return; }
+  if(ROOM.phase==='roundEnd'){ app.innerHTML = renderReveal(); attach(); fitTableToScreen(); return; }
   if(ROOM.phase==='gameOver'){
     if(!gameResultRecorded){
       gameResultRecorded = true;
@@ -2435,7 +2435,7 @@ function render(){
       recordGameResult(won, myScore, ROOM.turnOrder.length-1, LOCAL_MODE?'ai':'online');
       if(won) sfxWin(); else sfxFail();
     }
-    app.innerHTML = renderGameOver(); attach(); return;
+    app.innerHTML = renderGameOver(); attach(); fitTableToScreen(); return;
   }
 
   const others = ROOM.turnOrder.filter(u=>u!==myUid);
