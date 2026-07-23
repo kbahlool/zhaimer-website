@@ -537,7 +537,7 @@ const DONATE_URL = "https://paypal.me/KhalidBahlool1";
 // Link shown/spoken in the promo video's end card — used for the "Play Now"
 // button on the post-trailer overlay. Double-check this matches exactly
 // what's shown in your video before relying on it.
-const TRAILER_PLAY_URL = "game.html";
+const TRAILER_PLAY_URL = "https://kbahlool.github.io/zhaimer-game/index.html";
 
 let fbApp = null, db = null, fbReady = false, fbError = null;
 try{
@@ -2521,6 +2521,27 @@ const MIN_TABLE_SCALE = 0.62;
 function fitTableToScreen(){
   const tableEl = document.querySelector('.table');
   if(!tableEl) return;
+
+  // The reveal/round-results screen already has its own working design:
+  // a scrollable results list with the "Next Round" button pinned below
+  // it, always reachable. That only works if .table has a genuinely
+  // bounded height — so for this screen specifically, skip the
+  // scale-transform approach entirely and just bound the height directly.
+  const isRevealScreen = !!tableEl.querySelector('.reveal-wrap');
+  if(isRevealScreen){
+    tableEl.style.transform = 'none';
+    tableEl.style.height = '100dvh';
+    tableEl.style.maxHeight = '100dvh';
+    tableEl.style.overflow = 'hidden';
+    const wrap = tableEl.parentElement;
+    if(wrap){ wrap.style.height=''; wrap.style.minHeight=''; wrap.style.overflow=''; }
+    document.body.style.overflow = 'hidden';
+    return;
+  }
+
+  tableEl.style.height = '';
+  tableEl.style.maxHeight = '';
+  tableEl.style.overflow = '';
   tableEl.style.transform = 'none';
   tableEl.style.transformOrigin = 'top center';
   const wrap = tableEl.parentElement;
